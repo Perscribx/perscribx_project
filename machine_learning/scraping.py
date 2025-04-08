@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from io import BytesIO
 from PyPDF2 import PdfReader
 
+from machine_learning.summary import summarise, split_text
 
 main_url = "https://www.gov.pl/web/gif/komunikaty"
 root_url = 'https://www.gov.pl'
@@ -59,3 +60,17 @@ text_from_pdf = get_text_from_pdf_from_url(url_pdf)
 
 
 print(get_publication_date('/web/gif/komunikat-glownego-inspektora-farmaceutycznego-z-dnia-20-marca-2025-r'))
+
+
+split_text = split_text(text_from_pdf)
+#summarised = summarise(text_from_pdf)
+
+
+with open("test.txt", 'r', encoding="utf-8") as r:
+    text_from_file = r.read()
+
+summarised = summarise(text_from_file)
+
+with open('test.txt', 'w',  encoding="utf-8") as f:
+    f.write(summarised)
+
