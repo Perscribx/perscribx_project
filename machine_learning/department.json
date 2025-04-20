@@ -1,0 +1,43 @@
+{
+  "HR": [
+    "rekrutacja", "pracownicy", "współpraca", "zespoły", "rozmowy kwalifikacyjne",
+    "wynagrodzenie", "szkolenia", "zatrudnienie", "benefity", "umowy o pracę",
+    "wypowiedzenia", "absencja", "wymagania", "oceny pracowników", "mobbing"
+  ],
+  "Finanse": [
+    "budżet", "kredyty", "rachunki", "sprawozdania finansowe", "przychody",
+    "wydatki", "pożyczki", "inwestycje", "kontrola finansowa", "podatki",
+    "audyt", "bilans", "zyski", "koszty", "dochody"
+  ],
+  "Kontrol Jakości": [
+    "standardy", "inspekcje", "sprawdzanie", "certyfikaty", "procedury",
+    "kontrola jakości", "audyt jakości", "testy", "raporty", "zgodność",
+    "weryfikacja", "produkcja", "normy", "wytyczne", "kontrola"
+  ],
+  "Research": [
+    "badania", "analiza", "eksperymenty", "raport", "publikacje",
+    "projekty badawcze", "nowości", "innowacje", "testy", "technologie",
+    "rozwoj", "testowanie", "rozwiązania", "projekty", "studia"
+  ],
+  "Logistyka": [
+    "magazynowanie", "dystrybucja", "transport", "dostawy", "zamówienia",
+    "opóźnienia", "planowanie", "zaopatrzenie", "koordynacja", "spedycja",
+    "załadunek", "logistyka", "terminal", "towary", "przewóz"
+  ],
+  "Produckja": [
+    "produkcja", "maszyny", "montaż", "zakład", "proces produkcyjny",
+    "linie produkcyjne", "kontrola", "produkcja seryjna", "zautomatyzowana",
+    "wydajność", "pracownicy produkcji", "magazyn", "materiały", "opróżnianie",
+    "realizacja"
+  ],
+  "IT": [
+    "programowanie", "oprogramowanie", "systemy", "sieci komputerowe", "bazodanowy",
+    "algorytmy", "architektura IT", "serwery", "administracja", "aplikacje",
+    "kodowanie", "testowanie", "cyberbezpieczeństwo", "IT", "zabezpieczenia"
+  ],
+  "Prawo": [
+    "prawo", "umowy", "kontrakty", "kodeks", "licencje",
+    "odpowiedzialność", "sąd", "sprawy sądowe", "adwokat", "konsultacje prawne",
+    "regulacje", "przepisy", "akt prawny", "zatrudnienie", "proces"
+  ]
+}

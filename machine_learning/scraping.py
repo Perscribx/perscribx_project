@@ -3,22 +3,36 @@ from bs4 import BeautifulSoup
 from io import BytesIO
 from PyPDF2 import PdfReader
 
-from machine_learning.summary import summarise, split_text
 
 main_url = "https://www.gov.pl/web/gif/komunikaty"
 root_url = 'https://www.gov.pl'
 response = requests.get(main_url)
 
 def all_notifications_urls():
-    if response.status_code == 200:
+    pattern_one = 'https://www.gov.pl/web/gif/komunikaty?page='
+    pattern_two = '&size=10'
+    counter = 1
+    response = requests.get(pattern_one + str(counter) + pattern_two)
+    hrefs = []
+    soup = BeautifulSoup(response.text, 'html.parser')
+    while True:
+        soup = BeautifulSoup(response.text, 'html.parser')
+        if soup.find_all('input',  {'id': 'js-pagination-page'})[0].get('value') != str(counter):
+            print(soup.find_all('input',  {'id': 'js-pagination-page'})[0].get('value') )
+            print(counter)
+            break
         page_content = response.text
         soup = BeautifulSoup(page_content, 'html.parser')
         all_hrefs = soup.find_all('a')
+        print(all_hrefs)
+        href = [a.get('href') for a in all_hrefs]
+        href = [hrefs.append(a) for a in href if '/web/gif/komunikat-glownego-inspektora-farmaceutycznego-z-dnia-' in a]
 
-        hrefs = [a.get('href') for a in all_hrefs]
-        href_notifications = [x for x in hrefs if '/web/gif/komunikat-glownego-inspektora-farmaceutycznego-z-dnia-' in x]
+        counter += 1
 
-        print(href_notifications)
+        response = requests.get(pattern_one + str(counter) + pattern_two)
+
+    return hrefs
 
 def get_text_from_pdf_from_url(url):
 
@@ -42,35 +56,37 @@ def get_pdf_url(site_url):
     href = [a.get('href') for a in a_list][0]
     return root_url + href
 
-def get_publication_date(site_url):
+def get_notification_meta_data(site_url):
+    full_path = root_url + site_url
+    response_data = requests.get(full_path)
+    soup_data = BeautifulSoup(response_data.text, 'html.parser')
+
+    metadata =  [x.get_text() for x in soup_data.find_all('dd')]
+
+    if metadata :
+        metadata = metadata[0].split()
+        return metadata[0], metadata[1], metadata[2] + metadata[3]
+
+    return None
+def get_title(site_url):
 
     full_path = root_url + site_url
     response_data = requests.get(full_path)
     soup_data = BeautifulSoup(response_data.text, 'html.parser')
-    data = [x.get_text() for x in soup_data.find_all('p', class_='event-date')]
+    intro = [x.get_text() for x in soup_data.find_all('p', class_='intro')]
+    if intro:
+        return intro[0]
+    return None
 
-    return data[0]
-
-
-all_notifications_urls()
-url_pdf = get_pdf_url('/web/gif/komunikat-glownego-inspektora-farmaceutycznego-z-dnia-20-marca-2025-r')
-text_from_pdf = get_text_from_pdf_from_url(url_pdf)
-
-#get_text_from_pdf_from_url('/attachment/070a2fc5-7cb5-468e-8d6b-d73b4e3db12f')
-
-
-print(get_publication_date('/web/gif/komunikat-glownego-inspektora-farmaceutycznego-z-dnia-20-marca-2025-r'))
+'''
+def summarise_title(title):
+    if title is None:
+        return None
+    words_amt = len(title.split())
 
 
-split_text = split_text(text_from_pdf)
-#summarised = summarise(text_from_pdf)
+    title = summarise(title, max_length = words_amt, min_length = 5)
 
-
-with open("test.txt", 'r', encoding="utf-8") as r:
-    text_from_file = r.read()
-
-summarised = summarise(text_from_file)
-
-with open('test.txt', 'w',  encoding="utf-8") as f:
-    f.write(summarised)
+    return title
+'''
 
