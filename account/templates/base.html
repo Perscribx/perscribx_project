@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+</head>
+<body>
+<div id="header">
+    <span class="logo">Perscribx</span>
+    {% if request.user.is_authenticated %}
+    <ul class="menu">
+        <li {% if section == "dashboard" %}class="selected"{% endif %}>
+        <a href="{% url "dashboard" %}">Panel główny</a>
+        </li>
+        <li {% if section == "announcements" %}class="selected"{% endif %}>
+        <a href="#">Komunikaty</a>
+        </li>
+        <li {% if section == "messages" %}class="selected"{% endif %}>
+        <a href="#">Wiadomości</a>
+        </li>
+    </ul>
+    {% endif %}
+
+    <span class="user">
+        {% if request.user.is_authenticated %}
+            <form action="{% url "logout" %}" method="post">
+                Witaj, {{ request.user.first_name }}
+    {% csrf_token %}
+    <input type="submit" value="Wyloguj">
+</form>
+        {% else %}
+        <a href="{% url "login" %}">Zaloguj</a>
+        {% endif %}
+    </span>
+</div>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li class="{{ message.tags }}">
+        {{ message|safe }}
+        <a href="#" class="close">x</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Panel główny{% endblock %}
+
+{% block content %}
+<h1>Panel główny</h1>
+
+{% with total_images_created=request.user.images_created.count %}
+<p>Witaj w panelu głównym. Dodałeś {{ total_images_created }} obraz{{ total_images_created|pluralize:"ów" }}.</p>
+{% endwith %}
+
+
+<p>Witaj w panelu głównym. Możesz <a href="{% url "edit" %}">edytować profil</a> lub
+    <a href="{% url "password_change" %}">zmienić hasło</a>.</p>
+{% endblock %}
