@@ -1,12 +1,17 @@
+from types import NoneType
+
 import requests
 from bs4 import BeautifulSoup
 from io import BytesIO
 from PyPDF2 import PdfReader
 
+from machine_learning.scraping_news_section import notifications
 
 main_url = "https://www.gov.pl/web/gif/komunikaty"
 root_url = 'https://www.gov.pl'
 response = requests.get(main_url)
+
+notifications = []
 
 def all_notifications_urls():
     pattern_one = 'https://www.gov.pl/web/gif/komunikaty?page='
@@ -18,13 +23,11 @@ def all_notifications_urls():
     while True:
         soup = BeautifulSoup(response.text, 'html.parser')
         if soup.find_all('input',  {'id': 'js-pagination-page'})[0].get('value') != str(counter):
-            print(soup.find_all('input',  {'id': 'js-pagination-page'})[0].get('value') )
-            print(counter)
             break
         page_content = response.text
         soup = BeautifulSoup(page_content, 'html.parser')
         all_hrefs = soup.find_all('a')
-        print(all_hrefs)
+
         href = [a.get('href') for a in all_hrefs]
         href = [hrefs.append(a) for a in href if '/web/gif/komunikat-glownego-inspektora-farmaceutycznego-z-dnia-' in a]
 
@@ -47,6 +50,7 @@ def get_text_from_pdf_from_url(url):
 
     return text
 
+#PDF URL
 def get_pdf_url(site_url):
 
     full_path = root_url + site_url
@@ -65,7 +69,7 @@ def get_notification_meta_data(site_url):
 
     if metadata :
         metadata = metadata[0].split()
-        return metadata[0], metadata[1], metadata[2] + metadata[3]
+        return metadata[0], metadata[1], metadata[2] + " " + metadata[3]
 
     return None
 def get_title(site_url):
@@ -78,15 +82,21 @@ def get_title(site_url):
         return intro[0]
     return None
 
-'''
-def summarise_title(title):
-    if title is None:
-        return None
-    words_amt = len(title.split())
+def all_notifications():
+    urls = all_notifications_urls()
+    for url in urls:
+        pdf_url = get_pdf_url(url)
+        try:
+            data, time, author = get_notification_meta_data(url)
+        except Exception:
+            data = None
+            time = None
+            author = None
+        title = get_title(url)
+        pdf_text = get_text_from_pdf_from_url(pdf_url)
+        notifications.append({'title' : title, 'data' : data, 'author' : author, 'text' : pdf_text, 'priority' : "high priority", 'url' : root_url +  url, 'pdf_url' : pdf_url})
 
 
-    title = summarise(title, max_length = words_amt, min_length = 5)
 
-    return title
-'''
-
+all_notifications()
+print(notifications)
