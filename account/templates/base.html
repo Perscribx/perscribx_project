@@ -12,10 +12,10 @@
     {% if request.user.is_authenticated %}
     <ul class="menu">
         <li {% if section == "dashboard" %}class="selected"{% endif %}>
-        <a href="{% url "dashboard" %}">Panel główny</a>
+        <a href="{% url "account:dashboard" %}">Panel główny</a>
         </li>
         <li {% if section == "announcements" %}class="selected"{% endif %}>
-        <a href="#">Komunikaty</a>
+        <a href="{% url "notifications:summary_list" %}">Komunikaty</a>
         </li>
         <li {% if section == "messages" %}class="selected"{% endif %}>
         <a href="#">Wiadomości</a>
@@ -25,13 +25,13 @@
 
     <span class="user">
         {% if request.user.is_authenticated %}
-            <form action="{% url "logout" %}" method="post">
+            <form action="{% url "account:logout" %}" method="post">
                 Witaj, {{ request.user.first_name }}
     {% csrf_token %}
     <input type="submit" value="Wyloguj">
 </form>
         {% else %}
-        <a href="{% url "login" %}">Zaloguj</a>
+        <a href="{% url "account:login" %}">Zaloguj</a>
         {% endif %}
     </span>
 </div>
