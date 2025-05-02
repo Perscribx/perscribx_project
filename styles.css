@@ -1,0 +1,47 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+
+body {
+    font-family: 'Instrument Sans', sans-serif;
+  }
+  
+  .header-link {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #1a1a1a;
+  }
+
+  .header-link a{
+   font-size: 22px;
+  }
+  
+  .header-link:hover {
+    text-decoration: underline;
+  }
+  
+  .message-line {
+    border-bottom: 1px solid #0d3a6b;
+    padding: 12px 0;
+    cursor: pointer;
+  }
+  
+  .footer {
+    background-color: #0d3a6b;
+    color: white;
+    padding: 20px 0;
+  }
+  
+  .pagination {
+    justify-content: center;
+  }
+  
+  .blue-highlight {
+    color: #0d3a6b;
+  }
+  
+  .placeholder-box {
+    height: 120px;
+    background-color: #e6f0ff;
+    border-radius: 12px;
+  }
+  
