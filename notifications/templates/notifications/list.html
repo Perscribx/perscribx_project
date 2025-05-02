@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Komunikaty{% endblock %}
+
+{% block content %}
+<h1>Komunikaty</h1>
+    {% for summary in summaries %}
+    	<h2>
+        <a href="{{ summary.get_absolute_url }}">
+            {{ summary.title }}
+        </a>
+        </h2>
+        {{ summary.priority }}
+    {% endfor %}
+
+{% endblock %}
