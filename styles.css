@@ -26,8 +26,8 @@ body {
   display: flex;
   gap:4rem;
   align-items: center;
-
 }
+
   .fw-bold.mb-3.one {
     font-size: 32px;
     color: #11224B;
@@ -82,4 +82,4 @@ body {
     background-color: #E5ECFF;
     border-radius: 12px;
   }
-  
+
