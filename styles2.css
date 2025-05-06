@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
-
 body {
   font-family: 'Instrument Sans', sans-serif;
   margin: 0;
@@ -31,38 +29,50 @@ body {
   align-items: center;
 }
 
-.fw-bold.mb-3.one {
-  font-size: 32px;
-  color: #11224B;
-}
-
-
-.d-flex.ms-auto img {
-  margin-top: 8px;
-  max-height: 12px;
-  width: auto;
-  margin-left: 10px;
-
-}
-
-.sort_text {
-  font-size: 20px;
-}
-
-.header a {
-  font-size: 22px;
-}
-
-.header:hover {
-  text-decoration: underline;
-}
-
 .message-line {
-  border-bottom: 1px solid #0d3a6b;
-  padding: 12px 0;
+  border-bottom: 2px solid #0d3a6b;
   cursor: pointer;
   align-items: center;
 }
+.team-member {
+
+  margin-bottom: 2rem;
+}
+
+h6{
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.row.mt-4 a{
+    text-align: left;
+    color: black;
+    text-decoration: underline;
+}
+
+.placeholder-box {
+  height: 255px;
+  background-color: #E5ECFF;
+  border-radius: 12px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.row.mb-5.gx-3{
+  justify-content: center;
+}
+
+h1{
+    font-size: 22px;
+}
+
+.linkedin_logo{
+  max-height: 20px;
+  width: auto;
+
+}
+
 
 .footer {
   background-color: #0d3a6b;
@@ -100,44 +110,11 @@ body {
 .footer .text-end span {
   margin: 0;
 }
-.row.mb-5.gx-3{
-  justify-content: center;
-}
-.footer img {
-  max-width: 100px;
-  height: auto;
-}
-
-.pagination {
-  justify-content: center;
-  gap: 30px;
-}
-
-.blue-highlight {
-  color: #0d3a6b;
-}
-
-.placeholder-box {
-  height: 255px;
-  background-color: #E5ECFF;
-  border-radius: 12px;
-  width: 100%;
-  margin-bottom: 20px;
-}
 
 @media (max-width: 900px) {
-  .fw-bold.mb-3.one {
+.fw-bold.mb-3.one {
     font-size: 22px;
     text-align: left;
-  }
-
-  .sort_text {
-    font-size: 16px;
-  }
-
-  .d-flex.ms-auto img {
-    max-height: 10px;
-    margin-left: 6px;
   }
 
   .navi {
@@ -192,7 +169,6 @@ body {
     height: 16px;
     width: 16px;
   }
-
   .navbar .d-flex span {
     font-size: 14px;
   }

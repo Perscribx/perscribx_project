@@ -1,0 +1,225 @@
+body {
+    font-family: 'Instrument Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.header {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.logo {
+    height: 32px;
+}
+
+.icon {
+    height: 20px;
+    width: 20px;
+    object-fit: contain;
+}
+
+.task-line span:first-child {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+a {
+    color: black;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: black;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+a:active {
+    color: black;
+    text-decoration: underline;
+}
+
+.task-line {
+    display: grid;
+    grid-template-columns: 120px 60px 1fr 50px 150px;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #11224B;
+}
+
+.status-label {
+    text-align: right;
+}
+
+.task-status {
+    text-align: left;
+    margin-left: 52%;
+}
+
+.progress {
+    height: 10px;
+    width: 500px;
+}
+
+
+.progress-bar {
+    background-color: #0d1c45;
+    height: 100%;
+    width: 100%;
+}
+
+.footer {
+    background-color: #0d3a6b;
+    color: #E5ECFF;
+    padding: 20px 0;
+    font-size: 16px;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #E5ECFF;
+}
+
+.footer .container {
+    max-width: 100%;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.footer .text-end {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.d-flex.ms-auto img {
+    margin-top: 8px;
+    max-height: 12px;
+    width: auto;
+    margin-left: 10px;
+
+}
+
+.placeholder-box {
+    height: 255px;
+    background-color: #E5ECFF;
+    border-radius: 12px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.row.mb-5.gx-3 {
+    justify-content: center;
+}
+
+.container.mt-4 h1 {
+    font-size: 20px;
+    color: #11224B;
+}
+
+@media (max-width: 900px) {
+
+    .fw-bold.mb-3.one {
+    font-size: 22px;
+    text-align: left;
+  }
+
+  .sort_text {
+    font-size: 16px;
+  }
+
+  .d-flex.ms-auto img {
+    max-height: 10px;
+    margin-left: 6px;
+  }
+
+  .navi {
+    display: none !important;
+  }
+
+  .row.mb-5.gx-3{
+     padding: 0 16px;
+  }
+
+  .placeholder-box {
+    height: 120px;
+    width: 100%;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border-radius: 8px;
+  }
+
+  .logo{
+    height: 20px;
+    width: auto;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 16px;
+  }
+
+  .footer .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer .text-end {
+    align-items: center;
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .container_summary p {
+    font-size: 14px;
+  }
+
+  .header {
+    font-size: 14px !important;
+  }
+
+  .icon {
+    height: 16px;
+    width: 16px;
+  }
+
+  .navbar .d-flex span {
+    font-size: 14px;
+  }
+
+  .progress {
+    height: 10px;
+    width: 200px;
+}
+  .task-line {
+    display: grid;
+    grid-template-columns: 100px 80px 280px;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #11224B;
+}
+
+
+}
