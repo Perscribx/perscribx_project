@@ -10,16 +10,16 @@
   Spróbuj ponownie.
 </p>
 {% else %}
-<p>Wypełnij poniższy formularz, aby się zalogować. Jeżeli nie masz jeszcze konata, możesz je utworzyć <a href="{% url "register" %}">tutaj</a>.</p>
+<p>Wypełnij poniższy formularz, aby się zalogować. Jeżeli nie masz jeszcze konata, możesz je utworzyć <a href="{% url "account:register" %}">tutaj</a>.</p>
 {% endif %}
 <div class="login-form">
-  <form action="{% url 'login' %}" method="post">
+  <form action="{% url 'account:login' %}" method="post">
     {{ form.as_p }}
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ next }}">
     <p><input type="submit" value="Zaloguj"></p>
   </form>
-  <p><a href="{% url "password_reset" %}">Zapomniałeś hasła?</a></p>
+  <p><a href="{% url "account:password_reset" %}">Zapomniałeś hasła?</a></p>
 </div>
 
 {% endblock %}

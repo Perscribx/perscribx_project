@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Perscribx{% endblock %}
+
+{% block content %}
+<h1 class="fw-bold mb-3">O zespole PERSCRIBX</h1>
+  <div class="message-line"></div>
+  <p class="mt-3">
+    Perscribx to zespół czterech studentów, których połączyła wspólna pasja do technologii i innowacji w ochronie zdrowia.
+    Wspólnie stworzyliśmy prototyp aplikacji webowej w ramach udziału w hackathonie Hack na Zdrowie 4, organizowanym przez Uniwersytet Medyczny w Łodzi.
+    Tematem naszej pracy był "Komunikaty ze strony GIF". Aplikacja, z której teraz korzystasz, to efekt naszej współpracy oraz zaangażowania.
+  </p>
+
+  <h1 class="fw-bold mb-3" >Zespół</h1>
+  <div class="message-line"></div>
+
+  <div class="row mt-4">
+    <div class="col-md-3">
+      <div class="team-member">
+        <h6>Martyna Łaganowska</h6>
+        <div class="message-line"></div>
+        <h6>lider zespołu, AI & ML</h6>
+            <a href="https://pl.linkedin.com/in/martyna-%C5%82aganowska-44b724338" target="_blank">
+                <img src="{% static 'img/logo_linkedin.png' %}" class="linkedin_logo" />
+            </a>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="team-member">
+        <h6>Gabriela Szczuka</h6>
+        <div class="message-line"></div>
+        <h6>UX/UI designer</h6>
+        <a href="link" target="_blank" >
+            <img src="{% static 'img/logo_linkedin.png' %}" class="linkedin_logo" />
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="team-member">
+        <h6>Mateusz Kupis</h6>
+        <div class="message-line"></div>
+        <h6>Backend Developer</h6>
+          <a href="https://www.linkedin.com/in/mateusz-kupis-37233b243/" target="_blank">
+            <img src="{% static 'img/logo_linkedin.png' %}" class="linkedin_logo" />
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="team-member">
+        <h6>Maja Mejza</h6>
+        <div class="message-line"></div>
+        <h6>Analiza danych</h6>
+          <a href="https://www.linkedin.com/in/maja-m-8708a7334/" target="_blank">
+              <img src="{% static 'img/logo_linkedin.png' %}" class="linkedin_logo" />
+          </a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

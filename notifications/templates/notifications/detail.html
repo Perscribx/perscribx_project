@@ -1,10 +1,78 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}{{ summary.title }}{% endblock %}
 
 {% block content %}
-    <div>
-    <h3>{{ summary.title }}</h3>
-    {{ summary.summary_pl }}
+    <div class="d-flex justify-content-between  mb-2">
+        <h1 class="fw-bold">{{ summary.title }}</h1>
+
+        <div class="d-flex ms-auto">
+            <p>{{ summary.priority }}</p>
+            <img src="{% static "img/yellow.png" %}">
+        </div>
+
     </div>
+
+    <p class="text-muted">tu można dać słowa kluczowe</p>
+    <p>{{ summary.summary_pl }}</p>
+    <p><a href="{{ summary.url }}">zobacz na stronie gov</a></p>
+
+    <hr>
+    <h1 class="fw-bold">Zadania</h1>
+    <div class="row mb-3">
+        <div class="col-md-12">
+
+            <div class="task-line">
+                <span>Zadanie 1</span>
+                <div class="progress mx-3"><div class="progress-bar" style="width: 0%"></div></div>
+                <span class="task-status">0%</span>
+                <p>Anna Kowalska</p>
+            </div>
+            <div class="task-line">
+                <span>Zadanie 2</span>
+                <div class="progress mx-3"><div class="progress-bar" style="width: 50%"></div></div>
+                <span class="task-status">50%</span>
+                <p>Karol Nowak</p>
+            </div>
+            <div class="task-line">
+                <span>Zadanie 3</span>
+                <div class="progress mx-3"><div class="progress-bar" style="width: 20%"></div></div>
+                <span class="task-status">20%</span>
+                <p>Michał Lis</p>
+            </div>
+            <div class="task-line">
+                <span>Zadanie 4</span>
+                <div class="progress mx-3"><div class="progress-bar" style="width: 90%"></div></div>
+                <span class="task-status">90%</span>
+                <p>Weronika Wiśniewska</p>
+            </div>
+            <div class="task-line">
+                <span>Zadanie 5</span>
+                <div class="progress mx-3"><div class="progress-bar" style="width: 100%"></div></div>
+                <span class="task-status">100%</span>
+                <p>Maciej Kot</p>
+            </div>
+        </div>
+    </div>
+    <p><a href="#">zarządzaj zadaniami dla tego komunikatu</a></p>
+
+    <div class="row mb-5 gx-3">
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="placeholder-box"></div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="placeholder-box"></div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="placeholder-box"></div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="placeholder-box"></div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="placeholder-box"></div>
+        </div>
+    </div>
+
 {% endblock %}

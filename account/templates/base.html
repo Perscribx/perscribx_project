@@ -3,51 +3,67 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.js"></script>
     <link href="{% static "css/base.css" %}" rel="stylesheet">
 </head>
 <body>
-<div id="header">
-    <span class="logo">Perscribx</span>
-    {% if request.user.is_authenticated %}
-    <ul class="menu">
-        <li {% if section == "dashboard" %}class="selected"{% endif %}>
-        <a href="{% url "account:dashboard" %}">Panel główny</a>
-        </li>
-        <li {% if section == "announcements" %}class="selected"{% endif %}>
-        <a href="{% url "notifications:summary_list" %}">Komunikaty</a>
-        </li>
-        <li {% if section == "messages" %}class="selected"{% endif %}>
-        <a href="#">Wiadomości</a>
-        </li>
-    </ul>
-    {% endif %}
+<nav class="navbar navbar-expand-lg bg-white shadow-sm px-4 py-3">
+    <div class="container-fluid d-flex align-items-center align-text-center">
+    <a href="{% url "main_site" %}">
+        <img src="{% static "img/logo1.png" %}" class="logo me-4" alt="logo">
+    </a>
 
-    <span class="user">
         {% if request.user.is_authenticated %}
-            <form action="{% url "account:logout" %}" method="post">
-                Witaj, {{ request.user.first_name }}
-    {% csrf_token %}
-    <input type="submit" value="Wyloguj">
-</form>
-        {% else %}
-        <a href="{% url "account:login" %}">Zaloguj</a>
+        <div class="d-none d-lg-flex flex-grow-1 justify-content-center align-items-center">
+            <div class="navi">
+                <a href="{% url "notifications:summary_list" %}" class="header">komunikaty</a>
+                <a href="#" class="header">aktywne zadania</a>
+                <a href="#" class="header">twoi pracownicy</a>
+                <a href="#" class="header">zarządzaj zadaniami</a>
+            </div>
+        </div>
         {% endif %}
-    </span>
-</div>
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li class="{{ message.tags }}">
-        {{ message|safe }}
-        <a href="#" class="close">x</a>
-    </li>
-    {% endfor %}
-</ul>
-{% endif %}
-<div id="content">
+
+        <div class="d-flex align-items-center">
+            <a href="#" class="header me-3"><i class="bi bi-search"></i></a>
+            <img src="{% static "img/Vector.png" %}" class="icon me-2" alt="search">
+            <img src="{% static "img/Group.png" %}" class="icon me-2" alt="user">
+            {% if request.user.is_authenticated %}
+            <span>{{ request.user.first_name }}, </span>
+                <form action="{% url "account:logout" %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Wyloguj" class="logout">
+                </form>
+            {% else %}
+                <span><a href="{% url "account:login" %}">Zaloguj</a></span>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+
+<div class="container mt-4 px-4">
     {% block content %}
     {% endblock %}
 </div>
+<footer class="footer">
+    <div class="container">
+        <div class="d-flex flex-column">
+            <a href="#">o nas</a>
+            <a href="#">kontakt</a>
+            <a href="#">zgłoś błąd</a>
+        </div>
+        <div class="text-end">
+            <p>współpraca</p>
+            <div class="d-flex align-items-center">
+                <span class="me-1">powered by</span>
+                <img src="{% static "img/logo.png" %}" alt="Perscribx" style="height: 20px;">
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

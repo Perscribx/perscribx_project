@@ -1,15 +1,49 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Komunikaty{% endblock %}
 
 {% block content %}
-<h1>Komunikaty</h1>
-    {% for summary in summaries %}
-    	<h2>
-        <a href="{{ summary.get_absolute_url }}">
-            {{ summary.title }}
-        </a>
-        </h2>
-        {{ summary.priority }}
+    <div class="container_summary">
+        <div class="d-flex align-items-center">
+            <p class="fw-bold mb-3 one">KOMUNIKATY GIF</p>
+            <div class="d-flex ms-auto">
+                <h2 class="sort_text">sortowanie</h2>
+                <img src="{% static 'img/Arrow.png' %}">
+            </div>
+        </div>
+
+        {% for summary in summaries %}
+        <div class="message-line"></div>
+        <div class="d-flex align-items-center">
+            <a href="{{ summary.get_absolute_url }}">{{ summary.title }}</a>
+            <div class="d-flex ms-auto align-items-center">
+                <p>{{ summary.priority }}</p>
+                <img src="{% static 'img/yellow.png' %}">
+            </div>
+        </div>
     {% endfor %}
+
+    </div>
+    {% include "pagination.html" with page=summaries %}
+
+
+    <div class="row mb-5 gx-3" >
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="placeholder-box"></div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="placeholder-box"></div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="placeholder-box"></div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="placeholder-box"></div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="placeholder-box"></div>
+        </div>
+    </div>
+
 
 {% endblock %}
