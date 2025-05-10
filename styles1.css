@@ -162,13 +162,14 @@ a:active {
      padding: 0 16px;
   }
 
-  .placeholder-box {
-    height: 120px;
-    width: 100%;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-    border-radius: 8px;
-  }
+    .placeholder-box {
+        height: 120px;
+        width: 100%;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+        border-radius: 8px;
+    }
+
 
   .logo{
     height: 20px;
@@ -212,11 +213,11 @@ a:active {
 
   .progress {
     height: 10px;
-    width: 200px;
+    width: 100px;
 }
   .task-line {
     display: grid;
-    grid-template-columns: 35px 40px 280px;
+    grid-template-columns: 160px 80px 140px;
     align-items: center;
     font-size: 14px;
     margin-top: 10px;
