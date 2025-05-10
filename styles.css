@@ -156,7 +156,6 @@ body {
     border-radius: 8px;
   }
 
-
   .logo{
     height: 20px;
     width: auto;
@@ -196,4 +195,5 @@ body {
   .navbar .d-flex span {
     font-size: 14px;
   }
+
 }
