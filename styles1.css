@@ -31,6 +31,12 @@ body {
     text-overflow: ellipsis;
 }
 
+.message-line {
+    border-bottom: 1px solid #0d3a6b;
+    cursor: pointer;
+    align-items: center;
+}
+
 a {
     color: black;
     text-decoration: underline;
@@ -141,26 +147,26 @@ a:active {
 @media (max-width: 900px) {
 
     .fw-bold.mb-3.one {
-    font-size: 22px;
-    text-align: left;
-  }
+        font-size: 22px;
+        text-align: left;
+    }
 
-  .sort_text {
-    font-size: 16px;
-  }
+    .sort_text {
+        font-size: 16px;
+    }
 
-  .d-flex.ms-auto img {
-    max-height: 10px;
-    margin-left: 6px;
-  }
+    .d-flex.ms-auto img {
+        max-height: 10px;
+        margin-left: 6px;
+    }
 
-  .navi {
-    display: none !important;
-  }
+    .navi {
+        display: none !important;
+    }
 
-  .row.mb-5.gx-3{
-     padding: 0 16px;
-  }
+    .row.mb-5.gx-3{
+        padding: 0 16px;
+    }
 
     .placeholder-box {
         height: 120px;
@@ -171,58 +177,58 @@ a:active {
     }
 
 
-  .logo{
-    height: 20px;
-    width: auto;
-  }
+    .logo{
+        height: 20px;
+        width: auto;
+    }
 
-  .footer {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px 16px;
-  }
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 16px;
+    }
 
-  .footer .container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+    .footer .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 
-  .footer .text-end {
-    align-items: center;
-    text-align: center;
-    margin-top: 12px;
-  }
+    .footer .text-end {
+        align-items: center;
+        text-align: center;
+        margin-top: 12px;
+    }
 
-  .container_summary p {
-    font-size: 14px;
-  }
+    .container_summary p {
+        font-size: 14px;
+    }
 
-  .header {
-    font-size: 14px !important;
-  }
+    .header {
+        font-size: 14px !important;
+    }
 
-  .icon {
-    height: 16px;
-    width: 16px;
-  }
+    .icon {
+        height: 16px;
+        width: 16px;
+    }
 
-  .navbar .d-flex span {
-    font-size: 14px;
-  }
+    .navbar .d-flex span {
+        font-size: 14px;
+    }
 
-  .progress {
-    height: 10px;
-    width: 100px;
-}
-  .task-line {
-    display: grid;
-    grid-template-columns: 160px 80px 140px;
-    align-items: center;
-    font-size: 14px;
-    margin-top: 10px;
-    color: #11224B;
-}
+    .progress {
+        height: 10px;
+        width: 100px;
+    }
+    .task-line {
+        display: grid;
+        grid-template-columns: 160px 80px 140px;
+        align-items: center;
+        font-size: 14px;
+        margin-top: 10px;
+        color: #11224B;
+    }
 
 
 }
