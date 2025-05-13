@@ -20,8 +20,8 @@
         <div class="d-none d-lg-flex flex-grow-1 justify-content-center align-items-center">
             <div class="navi">
                 <a href="{% url "notifications:summary_list" %}" class="header">komunikaty</a>
-                <a href="#" class="header">aktywne zadania</a>
-                <a href="#" class="header">twoi pracownicy</a>
+                <a href="{% url "notifications:task_list" %}" class="header">aktywne zadania</a>
+                <a href="{% url "employees:employee_list" %}" class="header">twoi pracownicy</a>
                 <a href="#" class="header">zarządzaj zadaniami</a>
             </div>
         </div>

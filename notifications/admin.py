@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from notifications.models import Summary
+from notifications.models import Summary, Task
 
 
 # Register your models here.
@@ -14,3 +14,13 @@ class SummaryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     date_hierarchy = 'date'
     ordering = ('priority',)
+
+@admin.register(Task)
+class TaskAdmin(admin.ModelAdmin):
+    list_display = ('title', 'summary', 'date', 'percentage', 'description', 'slug',)
+    list_filter = ('summary', 'date',)
+    search_fields = ('title', 'description',)
+    prepopulated_fields = {'slug': ('title',)}
+    date_hierarchy = 'date'
+    ordering = ('date',)
+    

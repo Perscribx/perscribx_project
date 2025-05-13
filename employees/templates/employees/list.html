@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Twoi Pracownicy
+{% endblock %}
+
+{% block content %}
+	<div class="d-flex justify-content-between  mb-2">
+        <h1 class="fw-bold">Twoi pracownicy</h1>
+    </div>
+    <div class="message-line"></div>
+
+    <div class="col-4">
+        {% for employee in employees %}
+        	<p>{{ employee.employee.first_name }} {{ employee.employee.last_name }} {{ employee.employee.email }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -8,8 +8,17 @@
         <h1 class="fw-bold">{{ summary.title }}</h1>
 
         <div class="d-flex ms-auto">
-            <p>{{ summary.priority }}</p>
-            <img src="{% static "img/yellow.png" %}">
+            <p>priorytet</p>
+            <img
+                    {% if summary.priority == 0 %}
+                        src="{% static "img/green.png" %}"
+                    {% elif summary.priority == 1 %}
+                        src="{% static "img/yellow.png" %}"
+                    {% elif summary.priority == 2 %}
+                        src="{% static "img/red.png" %}"
+                    {% endif %}
+
+                    alt="{{ summary.priority }}">
         </div>
 
     </div>
@@ -22,37 +31,15 @@
     <h1 class="fw-bold">Zadania</h1>
     <div class="row mb-3">
         <div class="col-md-12">
+            {% for task in tasks %}
+            <div class="task-line">
+                <span>{{ task.title }}</span>
+                <div class="progress mx-3"><div class="progress-bar" style="width: {{ task.percentage }}%"></div></div>
+                <span class="task-status">{{ task.percentage }}%</span>
+                <p>{{ task.assigned_to.first_name }} {{ task.assigned_to.last_name }}</p>
+            </div>
+            {% endfor %}
 
-            <div class="task-line">
-                <span>Zadanie 1</span>
-                <div class="progress mx-3"><div class="progress-bar" style="width: 0%"></div></div>
-                <span class="task-status">0%</span>
-                <p>Anna Kowalska</p>
-            </div>
-            <div class="task-line">
-                <span>Zadanie 2</span>
-                <div class="progress mx-3"><div class="progress-bar" style="width: 50%"></div></div>
-                <span class="task-status">50%</span>
-                <p>Karol Nowak</p>
-            </div>
-            <div class="task-line">
-                <span>Zadanie 3</span>
-                <div class="progress mx-3"><div class="progress-bar" style="width: 20%"></div></div>
-                <span class="task-status">20%</span>
-                <p>Michał Lis</p>
-            </div>
-            <div class="task-line">
-                <span>Zadanie 4</span>
-                <div class="progress mx-3"><div class="progress-bar" style="width: 90%"></div></div>
-                <span class="task-status">90%</span>
-                <p>Weronika Wiśniewska</p>
-            </div>
-            <div class="task-line">
-                <span>Zadanie 5</span>
-                <div class="progress mx-3"><div class="progress-bar" style="width: 100%"></div></div>
-                <span class="task-status">100%</span>
-                <p>Maciej Kot</p>
-            </div>
         </div>
     </div>
     <p><a href="#">zarządzaj zadaniami dla tego komunikatu</a></p>
