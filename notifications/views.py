@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.list import ListView
+from django.contrib.auth.decorators import login_required
 
 from notifications.models import Summary, Task
 
@@ -12,6 +13,7 @@ class SummaryListView(ListView):
     paginate_by = 5
     template_name = 'notifications/list.html'
 
+@login_required
 def summary_list(request):
     object_list = Summary.objects.all()
 
@@ -29,6 +31,7 @@ def summary_list(request):
                   {'page': page,
                    'summaries': summaries})
 
+@login_required
 def summary_detail(request, year, month, day, slug):
     summary = get_object_or_404(Summary, slug=slug,
                                 date__year=year,
@@ -40,6 +43,7 @@ def summary_detail(request, year, month, day, slug):
                   {'summary': summary,
                    'tasks': tasks})
 
+@login_required
 def task_detail(request, year, month, day, slug, task_slug):
     task = get_object_or_404(Task, summary__date__year=year, summary__date__month=month, summary__date__day=day,
                              summary__slug=slug, slug=task_slug)
@@ -47,6 +51,7 @@ def task_detail(request, year, month, day, slug, task_slug):
                   'tasks/detail.html',
                   {'task': task})
 
+@login_required
 def task_list(request):
     object_list = Task.objects.all().order_by('-summary__priority', 'date')
 
