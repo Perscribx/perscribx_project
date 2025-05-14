@@ -137,9 +137,7 @@ body {
     margin-left: 6px;
   }
 
-  .navi {
-    display: none !important;
-  }
+
 
   .placeholder-box {
     height: 120px;
@@ -344,11 +342,6 @@ a:active {
     max-height: 10px;
     margin-left: 6px;
   }
-
-  .navi {
-    display: none !important;
-  }
-
   .row.mb-5.gx-3{
      padding: 0 16px;
   }
