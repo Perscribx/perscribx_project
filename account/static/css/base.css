@@ -579,7 +579,6 @@ h1{
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         padding: 10px;
-        background-color: #f8f9fa;
         text-align: center;
     }
 
@@ -607,5 +606,5 @@ input[type="submit"][class="logout"] {
   color: inherit;
   font: inherit;
   cursor: pointer;
-  text-decoration: underline; /* opcjonalnie, żeby wyglądało jak link */
+  text-decoration: underline;
 }
