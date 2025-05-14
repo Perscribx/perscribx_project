@@ -18,7 +18,7 @@ def summary_list(request):
     object_list = Summary.objects.all()
 
 
-    paginator = Paginator(object_list, 5)
+    paginator = Paginator(object_list, 5)  # 10
     page = request.GET.get('page')
     try:
         summaries = paginator.page(page)
