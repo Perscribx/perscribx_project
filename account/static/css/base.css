@@ -574,7 +574,29 @@ h1{
   .navbar .d-flex span {
     font-size: 14px;
   }
+    .navi {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        text-align: center;
+    }
 
+    .navi a {
+        display: block;
+        padding: 10px;
+        background-color: #ffffff;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .navi a:hover {
+        background-color: #e9ecef;
+    }
 
 }
 
