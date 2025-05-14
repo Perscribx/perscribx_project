@@ -18,7 +18,7 @@ def summary_list(request):
     object_list = Summary.objects.all()
 
 
-    paginator = Paginator(object_list, 10)
+    paginator = Paginator(object_list, 5)
     page = request.GET.get('page')
     try:
         summaries = paginator.page(page)
@@ -55,7 +55,7 @@ def task_detail(request, year, month, day, slug, task_slug):
 def task_list(request):
     object_list = Task.objects.all().order_by('-summary__priority', 'date')
 
-    paginator = Paginator(object_list, 5)
+    paginator = Paginator(object_list, 10)
     page = request.GET.get('page')
     try:
         tasks = paginator.page(page)
