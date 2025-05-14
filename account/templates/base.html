@@ -17,7 +17,7 @@
     </a>
 
         {% if request.user.is_authenticated %}
-        <div class="d-none d-lg-flex flex-grow-1 justify-content-center align-items-center">
+        <div class="d-flex flex-column flex-grow-1 justify-content-center align-items-center">
             <div class="navi">
                 <a href="{% url "notifications:summary_list" %}" class="header">komunikaty</a>
                 <a href="{% url "notifications:task_list" %}" class="header">aktywne zadania</a>
