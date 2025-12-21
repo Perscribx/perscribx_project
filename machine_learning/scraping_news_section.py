@@ -26,7 +26,6 @@ def get_all_notification_news_section():
     soup = BeautifulSoup(response.text, 'html.parser')
 
     while True:
-        #art-prev art-prev--near-menu
         soup = BeautifulSoup(response.text, 'html.parser')
         if soup.find('input',  {'id': 'js-pagination-page'}).get('value') != str(counter):
 
